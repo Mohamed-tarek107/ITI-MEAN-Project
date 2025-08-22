@@ -1,10 +1,16 @@
+<body>
 <div class="pagination">
-  <button class="prev">&lt;</button>
-  <button class="page active">1</button>
-  <button class="page">2</button>
-  <button class="page">3</button>
-  <button class="page">4</button>
-  <button class="page">5</button>
+  <button class="prev" (click)="prevPage()">&lt;</button>
+  @for(page of pages; track $index){
+  <button 
+  class="page"
+  [class.active]="currentpage === $index"
+  (click)="setactivepage($index)"
+  >
+  {{ page }}
+  </button>
+}
   <button class="dots">...</button>
-  <button class="next">&gt;</button>
+  <button class="next" (click)="nextPage()">&gt;</button>
 </div>
+</body>
