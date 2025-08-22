@@ -1,0 +1,27 @@
+.pagination {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-60%); 
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.pagination button {
+  border: none;
+  background: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 45px;
+  transition: background 0.2s;
+}
+
+.pagination button:hover {
+  background: #f0f0f0;
+}
+
+.pagination .active {
+  background: #ffda47; 
+  font-weight: bold;
+}

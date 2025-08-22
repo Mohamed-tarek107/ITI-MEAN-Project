@@ -44,8 +44,9 @@ export class Watchlist {
   }
 ]
 
-  private apiwatchlist = 'http://localhost:5000/api/watchlist' //url el watchlist
-  
+  private apiwatchlist = 'http://localhost:5000/api/watchlist' 
+
+  //url el watchlist
   constructor(private http: HttpClient){}
 
   getWatchList(): Observable<any> { // show all

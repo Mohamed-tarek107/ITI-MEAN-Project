@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Watchlist } from '../../services/watchlist/watchlist';
 
 @Component({
   selector: 'app-navbar',
@@ -9,5 +10,5 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./navbar.css']
 })
 export class Navbar {
-
+  
 }
