@@ -1,21 +1,18 @@
 .pagination {
   position: fixed;
-<<<<<<< HEAD
   bottom: 20px;
   left: 50%;
-  transform: translateX(-60%); 
+  transform: translateX(-60%);
   padding: 8px 12px;
-=======
-  bottom: 20px;                
-  left: 50%;                 
-  transform: translateX(-50%); 
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  background: white;  
+  background: white;
   padding: 10px 15px;
->>>>>>> 88d26c31a9dbede484547d07693717382d51235e
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   z-index: 1000;
 }
 .pagination button {
@@ -32,6 +29,6 @@
 }
 
 .pagination .active {
-  background: #ffda47; 
+  background: #ffda47;
   font-weight: bold;
 }
