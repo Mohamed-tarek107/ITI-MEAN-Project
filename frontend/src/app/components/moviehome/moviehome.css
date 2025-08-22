@@ -7,6 +7,9 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   background: white;
@@ -23,11 +26,9 @@
   border-radius: 45px;
   transition: background 0.2s;
 }
-
 .pagination button:hover {
   background: #f0f0f0;
 }
-
 .pagination .active {
   background: #ffda47;
   font-weight: bold;
