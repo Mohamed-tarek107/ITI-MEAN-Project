@@ -1,0 +1,33 @@
+.poster {
+  width: 50%;
+  border-radius: 30px;
+}
+.wrap{
+    gap:20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    border-radius: 30px;
+}
+.title {
+    gap:10px;
+    
+}
+.watchlist{
+    color:#FFE353;
+}
+
+@media (max-width:968px){
+    .wrap{
+        flex-direction:column;
+        align-items: center;
+    }
+    .desc{
+        text-align: center;
+        padding:20px;
+    }
+    .title{
+        justify-content: center;
+    }
+    .poster{
+        width:100%;
+    }
+}
