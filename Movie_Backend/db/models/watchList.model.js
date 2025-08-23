@@ -3,8 +3,10 @@ import mongoose from "mongoose";
 
 const watchListSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  poster: { type: String },
-  addedAt: { type: Date, default: Date.now }
+  poster: { type: String, required: true},
+  addedAt: { type: Date, default: Date.now },
+  desciption: { type: String, required: true},
+  rating: { type: String, required: true}
 },{versionKey: false});
 
 
