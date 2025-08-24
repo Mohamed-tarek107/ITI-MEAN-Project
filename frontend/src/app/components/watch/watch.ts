@@ -24,7 +24,10 @@ export class Watch implements OnInit {
       },
     });
   }
-  removeMovie(id: number) {
-    this.movies = this.movies.filter(movie => movie._id !== id);
+  removeMovie(id: string): void {
+    this.allWatchList.removeFromWatchlist(id).subscribe(() => {
+      this.movies = this.movies.filter(movie => movie._id !== id);
+    })
+    
   }
 }

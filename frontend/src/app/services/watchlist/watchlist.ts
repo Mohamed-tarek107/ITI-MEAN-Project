@@ -17,12 +17,12 @@ private apiwatchlist = 'http://localhost:3000/watchlist';
 
   //add one
   addToWatchlist(movieId:number): Observable<any> {
-    return this.http.post(`${this.apiwatchlist}/add`, {movieId})
+    return this.http.post(`${this.apiwatchlist}`, {movieId})
 
   }
 
   //remove
-  removeFromWatchlist(movieId:number):Observable<any>{
-    return this.http.delete(`${this.apiwatchlist}/watchlist/${movieId}`)
+  removeFromWatchlist(movieId:string):Observable<any>{
+    return this.http.delete(`${this.apiwatchlist}/${movieId}`)
   }
 }
