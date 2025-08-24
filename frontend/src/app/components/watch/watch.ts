@@ -28,6 +28,7 @@ export class Watch implements OnInit {
     this.allWatchList.removeFromWatchlist(id).subscribe(() => {
       this.movies = this.movies.filter(movie => movie._id !== id);
     })
+   
     
   }
 }
