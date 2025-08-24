@@ -12,13 +12,11 @@ private apiwatchlist = 'http://localhost:3000/watchlist';
 
   getWatchlist(): Observable<any> { // show all
     return this.http.get<any>(this.apiwatchlist);
-
   }
 
   //add one
-  addToWatchlist(movieId:number): Observable<any> {
-    return this.http.post(`${this.apiwatchlist}`, {movieId})
-
+  addToWatchlist(movie: any): Observable<any> {
+    return this.http.post(`this.apiwatchlist`, movie)
   }
 
   //remove
