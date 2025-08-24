@@ -16,6 +16,7 @@ const app = express();
 app.use(cors());
 app.use(movieRoutes);
 app.use(watchlistRoutes);
+app.use(express.json());
 
 
 
