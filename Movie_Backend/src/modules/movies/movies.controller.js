@@ -37,6 +37,7 @@ const movieDetails = async (req, res) => {
         ? `https://image.tmdb.org/t/p/w500${response.data.poster_path}`
         : null,
       overview: response.data.overview,
+      vote_count: response.data.vote_count,
       vote_average: response.data.vote_average,
     };
 

@@ -13,7 +13,9 @@ import { Router } from '@angular/router';
 })
 export class Cards implements OnInit {
 
-   movies: any[] = [];
+  movies: any[] = [];
+  currentpage = 1;
+  totalpages = 0;
 
   constructor(private tmdb: TmdbService, private watchlist: Watchlist, private router: Router) {}
 
@@ -50,5 +52,16 @@ export class Cards implements OnInit {
       }
     });
   }
+  }
+
+  //pagination;;;;;;;;;;;
+
+  loadmovies(page:number): void{
+    this.tmdb.getAllMovies(page).subscribe({
+      next: (data: any) => {
+        console.log(`page = ${data}`)
+        this.movies = (data?.results)
+      }
+    })
   }
 }
