@@ -8,3 +8,18 @@
   z-index: 5;
   cursor: pointer;
 }
+.heart-icon {
+  color: white;
+  transition: color 0.3s;
+}
+.heart-icon.liked {
+  color: #FFE353;
+}
+.heart-icon.animate {
+  animation: pop 0.3s;
+}
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}

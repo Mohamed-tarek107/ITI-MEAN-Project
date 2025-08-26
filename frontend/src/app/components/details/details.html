@@ -15,8 +15,8 @@
             <div class="date">
               <p class="p-0">{{movieDetails.release_date}}</p>
             </div>
-            <div class="rating d-flex mb-4">
-              @if(movieDetails.vote_average>=8){
+            <div class="rating d-flex mb-1">
+              @if(movieDetails.vote_average>=7){
                 @for(i of [1,2,3,4];track i){
                     <i class="fa-solid fa-star fs-4"></i>
                 }
