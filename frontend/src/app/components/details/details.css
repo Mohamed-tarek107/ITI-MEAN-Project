@@ -1,0 +1,80 @@
+body {
+  font-family: "Inter", sans-serif;
+}
+.movie-details .container .row .movie-image {
+  border-radius: 27px;
+  width: 90%;
+}
+.heading p {
+  font-size: 48px;
+  font-weight: 600;
+}
+.watchlist {
+  color: #ffe353;
+}
+.date {
+  padding: 0;
+  margin: 0;
+  color: grey;
+}
+.rating {
+  gap: 20px;
+}
+.description-text {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 100%;
+}
+.genres {
+  gap: 50px;
+}
+.genres div {
+  background-color: #ffe353;
+  border-radius: 25px;
+}
+.time {
+  gap: 10%;
+}
+.time .duration {
+  gap: 20px;
+}
+.languages .lang {
+  gap: 20px;
+}
+.comapany img {
+  width: 30%;
+}
+@media (max-width: 576px) {
+  .heading p {
+    font-size: 30px;
+  }
+  .movie-details .container .row .movie-image {
+    width: 100%;
+  }
+  .description-text {
+    font-size: 18px;
+  }
+  .comapany img {
+    width: 45%;
+  }
+}
+@media ((min-width: 768px) and (max-width:992px)) {
+  .movie-details .container .row .movie-image {
+    width: 100%;
+  }
+  .heading p {
+    font-size: 30px;
+  }
+  .description-text {
+    font-size: 18px;
+  }
+  .comapany img {
+    width: 45%;
+  }
+  .time .duration {
+    gap: 10px;
+  }
+  .time .duration p {
+    font-size: 15px;
+  }
+}

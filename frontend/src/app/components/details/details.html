@@ -1,1 +1,70 @@
-<p>This is dummy details component!!</p>
+ <section class="movie-details">
+      <div class="container">
+        <div class="row pb-3">
+            
+          <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
+            <img [src]="movieDetails.poster" class="movie-image" />
+          </div>
+          <div class="col-lg-8 col-md-6 col-sm-12 mt-4">
+            <div
+              class="heading d-flex align-items-center justify-content-between p-0 m-0"
+            >
+              <p class="m-0 p-0">{{movieDetails.title}}</p>
+              <i class="fa-solid fa-heart fs-2 watchlist"></i>
+            </div>
+            <div class="date">
+              <p class="p-0">{{movieDetails.release_date}}</p>
+            </div>
+            <div class="rating d-flex mb-4">
+              @if(movieDetails.vote_average>=8){
+                @for(i of [1,2,3,4];track i){
+                    <i class="fa-solid fa-star fs-4"></i>
+                }
+                <i class="fa-regular fa-star fs-4"></i>
+              }
+              @else{
+                @for(i of [1,2,3];track i){
+                    <i class="fa-solid fa-star fs-4"></i>
+                }
+                <i class="fa-regular fa-star fs-4"></i>
+                <i class="fa-regular fa-star fs-4"></i>
+              }
+              <p>{{movieDetails.vote_count}}</p>
+            </div>
+            <div class="description pb-2">
+              <p class="description-text">
+                {{movieDetails.overview}}
+              </p>
+            </div>
+            <div class="genres d-flex pb-3">
+              <div class="ps-3 pe-3 pt-2 pb-2 ps-lg-5 pe-lg-5 pt-lg-2 pb-lg-2">
+                Action
+              </div>
+              <div class="ps-3 pe-3 pt-2 pb-2 ps-lg-5 pe-lg-5 pt-lg-2 pb-lg-2">
+                Crime
+              </div>
+              <div class="ps-3 pe-3 pt-2 pb-2 ps-lg-5 pe-lg-5 pt-lg-2 pb-lg-2">
+                Thriller
+              </div>
+            </div>
+            <div class="time d-flex pt-3 pb-3">
+              <div class="duration d-flex">
+                <p class="fw-bold">Duration:</p>
+                <p>134 Min</p>
+              </div>
+              <div class="languages">
+                <div class="lang d-flex">
+                  <p class="fw-bold">Languages:</p>
+                  <p>English</p>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="comapany pb-2">
+              <img src="./assets/images/marvel.png" />
+            </div> -->
+          </div>
+        
+        </div>
+        <hr />
+      </div>
+    </section>

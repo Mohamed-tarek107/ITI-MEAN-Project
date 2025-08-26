@@ -4,10 +4,11 @@ import { Watchlist } from '../../services/watchlist/watchlist';
 import { NgClass } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-cards',
-  imports: [NgClass, CommonModule],
+  imports: [NgClass, CommonModule, RouterLink],
   templateUrl: './cards.html',
   styleUrl: './cards.css'
 })
@@ -20,7 +21,7 @@ export class Cards implements OnInit {
   constructor(private tmdb: TmdbService, private watchlist: Watchlist, private router: Router) {}
 
   goToDetails(movieId: number) { //route to details by clicking on movie image 
-    this.router.navigate(['/details'], { queryParams: { id: movieId } });
+    // this.router.navigate(['/details'], { queryParams: { id: movieId } });
   }
 
   ngOnInit(): void { //get all movies using the tmdbService on component initialization 

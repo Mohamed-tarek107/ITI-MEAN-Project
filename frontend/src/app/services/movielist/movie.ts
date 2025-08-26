@@ -17,11 +17,11 @@ constructor(private http: HttpClient){}
   }
 
   getSearch(): Observable<any> {
-    return this.http.get(`this.apihome/search`)
+    return this.http.get(`${this.apihome}/search`)
   }
 
-  getdetails(id: number): Observable<any> {
-    return this.http.get(`this.apihome/details/${id}`)
+  getdetails(id: string): Observable<any> {
+    return this.http.get(`http://localhost:3000/details/${id}`)
   }
 
 
