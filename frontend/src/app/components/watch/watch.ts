@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Watchlist } from '../../services/watchlist/watchlist';
+import { RouterLink } from '@angular/router'
 
 @Component({
   selector: 'app-watch',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './watch.html',
   styleUrl: './watch.css',
 })

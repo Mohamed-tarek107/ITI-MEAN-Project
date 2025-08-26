@@ -24,16 +24,42 @@ export class Cards implements OnInit {
     // this.router.navigate(['/details'], { queryParams: { id: movieId } });
   }
 
+  // ngOnInit(): void {
+  //   //get all movies using the tmdbService on component initialization
+  //   this.tmdb.getAllMovies().subscribe({
+  //     next: (data: any) => {
+  //       console.log('API data:', data);
+  //       this.movies = (data?.results ?? []).map((m: any) => ({ ...m, isLiked: false }));
+  //     },
+  //     error: (err) => console.error('TMDB error', err),
+  //   });
+  // }
   ngOnInit(): void {
-    //get all movies using the tmdbService on component initialization
-    this.tmdb.getAllMovies().subscribe({
-      next: (data: any) => {
-        console.log('API data:', data);
-        this.movies = (data?.results ?? []).map((m: any) => ({ ...m, isLiked: false }));
-      },
-      error: (err) => console.error('TMDB error', err),
-    });
-  }
+  // Get all movies using the tmdbService on component initialization
+  this.tmdb.getAllMovies().subscribe({
+    next: (data: any) => {
+      console.log('API data:', data);
+      const movies = data?.results ?? [];
+      // Fetch the watchlist after getting movies
+      this.watchlist.getWatchlist().subscribe({
+        next: (watchlist: any[]) => {
+          // Mark movies as liked if they exist in the watchlist
+          this.movies = movies.map((m: any) => ({
+            ...m,
+            isLiked: watchlist.some(w => w.id === m.id)
+          }));
+        },
+        error: (err) => {
+          console.error('Watchlist error', err);
+          // Fallback: just show movies with isLiked: false
+          this.movies = movies.map((m: any) => ({ ...m, isLiked: false }));
+        }
+      });
+    },
+    error: (err) => console.error('TMDB error', err),
+  });
+}
+
 
   toggleLike(movie: any) { //Change color of heart, and send to the backend using the watchlist service
     movie.isLiked = !movie.isLiked;

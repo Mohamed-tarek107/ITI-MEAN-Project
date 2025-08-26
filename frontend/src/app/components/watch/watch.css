@@ -20,6 +20,14 @@
     padding: 0;
     cursor: pointer;
 }
+.wrapper{
+    top:70%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.wrapper i{
+    font-size:10rem;
+}
 @media (max-width:968px){
     .wrap{
         flex-direction:column;
