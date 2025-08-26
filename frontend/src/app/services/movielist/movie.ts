@@ -16,9 +16,9 @@ constructor(private http: HttpClient){}
     return this.http.get(this.apihome);
   }
 
-  getSearch(): Observable<any> {
-    return this.http.get(`${this.apihome}/search`)
-  }
+  getSearch(query: string): Observable<any> {
+  return this.http.get(`${this.apihome}/search`, { params: { query } });
+}
 
   getdetails(id: string): Observable<any> {
     return this.http.get(`http://localhost:3000/details/${id}`)

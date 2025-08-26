@@ -50,18 +50,18 @@ const movieDetails = async (req, res) => {
 
 const searchMovie = async (req, res) => {
   try {
-    const { title } = req.query;
-    if (!title) {
+    const query = req.query.query;
+    if (!query) {
       return res.status(400).json({ message: "Title query is required" });
     }
 
-    console.log("Searching TMDB for:", title);
+    console.log("Searching TMDB for:", query);
     console.log("Using API key:", process.env.API_KEY); 
 
     const response = await axios.get(`${BASE_URL}/search/movie`, {
       params: { 
         api_key: process.env.API_KEY,
-        query: title 
+        query: query 
       },
     });
 
@@ -71,9 +71,11 @@ const searchMovie = async (req, res) => {
       poster: movie.poster_path
         ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
         : null,
+      vote_average:movie.vote_average,
+      release_date: movie.release_date
     }));
 
-    res.json(movies);
+    res.json({ movies });
   } catch (error) {
     console.error("TMDB API error details:", {
       status: error.response?.status,
