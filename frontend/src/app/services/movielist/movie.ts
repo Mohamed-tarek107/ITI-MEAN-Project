@@ -12,8 +12,8 @@ export class Movie {
 
 constructor(private http: HttpClient){}
 
-  getAllMovies(): Observable<any> {
-    return this.http.get(this.apihome);
+  getAllMovies(page: number = 1): Observable<any> {
+    return this.http.get(`${this.apihome}?page=${page}`);
   }
 
   getSearch(query: string): Observable<any> {

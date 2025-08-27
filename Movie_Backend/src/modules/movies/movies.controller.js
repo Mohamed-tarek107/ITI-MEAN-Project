@@ -5,8 +5,9 @@ const BASE_URL = "https://api.themoviedb.org/3";
 
 const getAllMovies = async (req, res) => {
   try {
+    const page = Math.min(parseInt(req.query.page) || 1, 20)
     const response = await axios.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&page=${page}`
     );
 
     
@@ -14,9 +15,18 @@ const getAllMovies = async (req, res) => {
       id: movie.id,
       title: movie.title,
       poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+      poster_path: movie.poster_path,
+      vote_average: movie.vote_average,
+      release_date: movie.release_date,
+      overview: movie.overview
     }));
 
-    res.json(movies);
+    res.json({
+      results: movies,
+      page: response.data.page,
+      total_pages: Math.min(response.data.total_pages, 20), //maybe error
+      total_results: response.data.total_results
+    });
   } catch (error) {
     console.error("TMDB API error:", error.response?.data || error.message);
     res.status(500).json({ message: "Error retrieving movies from TMDB" });

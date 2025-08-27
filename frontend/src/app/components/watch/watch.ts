@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router'
 export class Watch implements OnInit {
   movies: any[] = [];
   constructor(private allWatchList: Watchlist) {}
+  
   ngOnInit(): void {
     this.allWatchList.getWatchlist().subscribe({
       next: (data) => {
@@ -29,7 +30,6 @@ export class Watch implements OnInit {
     this.allWatchList.removeFromWatchlist(id).subscribe(() => {
       this.movies = this.movies.filter(movie => movie._id !== id);
     })
-   
     
   }
 }
