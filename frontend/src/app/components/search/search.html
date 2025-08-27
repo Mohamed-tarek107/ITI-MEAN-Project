@@ -22,46 +22,79 @@
     style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin-top:1rem;">
 
 @for (movie of results; track movie.id) {
-    <div class="card"
-    style="width:13rem; height:24rem; overflow:hidden; position:relative; border:none; border-radius:10px;">
-
-    <!-- Poster -->
+    <div
+    class="card"
+    *ngFor="let movie of results"
+    style="
+      width: 13rem;
+      height: 24rem;
+      overflow: hidden;
+      position: relative;
+      border: none;
+      border-radius: 10px;
+    "
+  >
     <a [routerLink]="['/details', movie.id]">
-        <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster"
-            class="card-img-top"
-            alt="{{ movie.title }}"
-            style="object-fit:cover; width:100%; height:100%; border-radius:10px;">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + movie.poster"
+        class="card-img-top"
+        alt="{{ movie.title }}"
+        style="object-fit: cover; width: 100%; height: 100%; border-radius: 10px"
+      />
     </a>
 
-    <!-- Overlay Icons -->
-    <i class="bi bi-circle-fill"
-        style="color:rgba(234,231,231,0.571); position:absolute; top:8px; right:8px; cursor:pointer;">
-    </i>
-    <i class="bi bi-three-dots"
-    style="position:absolute; top:8px; right:8px; cursor:pointer;">
-    </i>
+    <i
+      class="bi bi-circle-fill"
+      style="
+        color: rgba(234, 231, 231, 0.571);
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        cursor: pointer;
+      "
+    ></i>
+    <i
+      class="bi bi-three-dots"
+      style="position: absolute; top: 8px; right: 8px; cursor: pointer"
+    ></i>
 
-    <!-- Vote Average -->
-    <div style="position:absolute; top:calc(45% + 70px); left:calc(50% - 95px);
-                width:40px; height:40px; background-color:black; border:2px solid green;
-                border-radius:50%; display:flex; justify-content:center; align-items:center;
-                z-index:10; color:white; font-weight:bold; font-size:16px;">
-        {{ movie.vote_average | number:'1.1-1' }}
+    <div
+      style="
+        position: absolute;
+        top: calc(45% + 70px);
+        left: calc(50% - 95px);
+        width: 40px;
+        height: 40px;
+        background-color: black;
+        border: 2px solid green;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+      "
+    >
+      {{ movie.vote_average | number : '1.1-1' }}
     </div>
 
-    <!-- Card Body -->
-    <div class="card-body" style="height:40%; overflow:hidden;">
-        <h5 class="card-title fs-6 fw-semibold pt-1">{{ movie.title }}</h5>
-
-        <div style="display:flex; align-items:center;">
-        <p class="card-text mb-0">{{ movie.release_date | date:'MMM d, y' }}</p>
-
-        <!-- Like Button -->
-        <a class="btn ms-auto" (click)="toggleLike(movie)">
-            <i [ngClass]="movie.isLiked ? 'bi bi-heart-fill text-warning' : 'bi bi-heart text-dark'"></i>
-        </a>
-        </div>
+    <div class="card-body" style="height: 40%; overflow: hidden">
+      <h5 class="card-title fs-6 fw-semibold pt-1">{{ movie.title }}</h5>
+      <div style="display: flex; align-items: center">
+        <p class="card-text mb-0">{{ movie.release_date | date : 'MMM d, y' }}</p>
+        <button class="btn ms-auto" (click)="toggleLike(movie)">
+          <i
+            class="fa-solid fa-heart heart-icon"
+            [ngClass]="{ liked: movie.isLiked, animate: movie.animateLike }"
+            (click)="toggleLike(movie)"
+            style="position: absolute; top: 8px; right: 8px; cursor: pointer; font-size: 1.5rem"
+          >
+          </i>
+        </button>
+      </div>
     </div>
-    </div>
+  </div>
 }
 </div>

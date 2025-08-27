@@ -72,7 +72,8 @@ const searchMovie = async (req, res) => {
         ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
         : null,
       vote_average:movie.vote_average,
-      release_date: movie.release_date
+      release_date: movie.release_date,
+      overview: response.data.overview,
     }));
 
     res.json({ movies });
