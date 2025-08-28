@@ -83,7 +83,7 @@ const searchMovie = async (req, res) => {
         : null,
       vote_average:movie.vote_average,
       release_date: movie.release_date,
-      overview: response.data.overview,
+      overview: movie.overview,
     }));
 
     res.json({ movies });
